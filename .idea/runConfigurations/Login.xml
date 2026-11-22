@@ -9,10 +9,11 @@
     <option name="GROUP_NAME" value="" />
     <option name="TEST_OBJECT" value="CLASS" />
     <option name="PARAMETERS" value="" />
-    <option name="OUTPUT_DIRECTORY" value="D:\Programming\Java\Graduation_Project_Automation\test-output\Login" />
+    <option name="OUTPUT_DIRECTORY" value="PROJECT_DIR$/test-output/Login" />
     <option name="TEST_SEARCH_SCOPE">
       <value defaultName="moduleWithDependencies" />
     </option>
+    <option name="USE_DEFAULT_REPORTERS" value="true" />
     <option name="PROPERTIES_FILE" value="" />
     <properties />
     <listeners />
