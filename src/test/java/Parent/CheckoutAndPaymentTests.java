@@ -23,14 +23,14 @@ import org.testng.annotations.*;
             d = new ChromeDriver();
             d.manage().window().maximize();
             d.navigate().to("https://practicesoftwaretesting.com/auth/login");
-            Thread.sleep(10000);          // wait for the login page to load
+            Thread.sleep(5000);          // wait for the login page to load
 
             d.findElement(By.id("email")).sendKeys("Y@gmail.com");
             Thread.sleep(1000);
             d.findElement(By.id("password")).sendKeys("Sorsar@520078");
             Thread.sleep(1000);
             d.findElement(By.cssSelector("[data-test='login-submit']")).click();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
         }
 
         // ================= TESTS =================
@@ -111,7 +111,7 @@ import org.testng.annotations.*;
             AddRentalProduct();
 
             d.findElement(By.cssSelector("[data-test='nav-cart']")).click();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
 
             // example: "$148.51"  and  "- $22.28"  ->  148.51  and  22.28
             double subtotal = Double.parseDouble(d.findElement(By.cssSelector("[data-test='cart-subtotal']"))
@@ -136,7 +136,7 @@ import org.testng.annotations.*;
             AddRentalProduct();
 
             d.findElement(By.cssSelector("[data-test='nav-cart']")).click();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
 
             // discount is displayed before removing
             Assert.assertEquals(d.findElements(By.cssSelector("[data-test='cart-discount']")).size(), 1,
@@ -144,7 +144,7 @@ import org.testng.annotations.*;
 
             // click the red X in the Excavator row
             d.findElement(By.xpath("//tr[.//span[contains(text(),'Excavator')]]//a[contains(@class,'btn-danger')]")).click();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
 
             // discount row must disappear
             Assert.assertEquals(d.findElements(By.cssSelector("[data-test='cart-discount']")).size(), 0,
@@ -247,11 +247,11 @@ import org.testng.annotations.*;
         // Add "Combination Pliers" (Regular product) to the cart
         public void AddRegularProduct() throws InterruptedException {
             d.navigate().to("https://practicesoftwaretesting.com/");
-            Thread.sleep(10000);
+            Thread.sleep(5000);
             d.findElement(By.xpath("//img[@alt='Combination Pliers']")).click();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
             d.findElement(By.cssSelector("[data-test='add-to-cart']")).click();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
         }
 
         // Add "Excavator" (Rental product) to the cart
@@ -259,26 +259,26 @@ import org.testng.annotations.*;
             d.findElement(By.cssSelector("[data-test='nav-categories']")).click();
             Thread.sleep(1000);
             d.findElement(By.cssSelector("[data-test='nav-rentals']")).click();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
             d.findElement(By.xpath("//img[@alt='Excavator']")).click();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
             d.findElement(By.cssSelector("[data-test='add-to-cart']")).click();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
         }
 
         // Cart -> Sign in step -> Billing address -> Payment step
         public void GoToPayment() throws InterruptedException {
             d.findElement(By.cssSelector("[data-test='nav-cart']")).click();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
             d.findElement(By.cssSelector("[data-test='proceed-1']")).click();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
             d.findElement(By.cssSelector("[data-test='proceed-2']")).click();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
 
             d.findElement(By.id("country")).sendKeys("Egypt");
             d.findElement(By.id("postal_code")).sendKeys("11511");
             d.findElement(By.id("house_number")).sendKeys("42");
-            Thread.sleep(10000);          // the site fills street, city and state automatically
+            Thread.sleep(5000);          // the site fills street, city and state automatically
 
             // delete the auto-filled values and type ours
             ReplaceText("street", "Tahrir Street");
@@ -287,7 +287,7 @@ import org.testng.annotations.*;
             Thread.sleep(2000);
 
             d.findElement(By.cssSelector("[data-test='proceed-3']")).click();
-            Thread.sleep(10000);
+            Thread.sleep(5000);
         }
 
         // Delete the old value of a field and type a new one
