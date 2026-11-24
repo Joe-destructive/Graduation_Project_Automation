@@ -11,6 +11,9 @@ public class CustomerAreaTests {
     WebDriver d;
 
     @BeforeMethod
+
+
+
     public void Preconditions() throws InterruptedException {
         d = new ChromeDriver();
         d.manage().window().maximize();

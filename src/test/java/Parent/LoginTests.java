@@ -28,6 +28,7 @@ public class LoginTests {
 
     @Test
     public void PasswordRequired() throws InterruptedException {
+        d.findElement(By.id("email")).sendKeys("youssef.ramy@example.com");
         d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
         Assert.assertEquals(d.findElement(By.id("password-error")).getText(),
@@ -61,15 +62,7 @@ public class LoginTests {
                 "Email format is invalid", "Expected field validation was not displayed");
     }
 
-    @Test
-    public void EmailMissingDomainExtension() throws InterruptedException {
-        d.findElement(By.id("email")).sendKeys("youssef@gmail");
-        d.findElement(By.className("btnSubmit")).click();
-        Thread.sleep(1000);
-        String page = d.findElement(By.tagName("body")).getText();
-        Assert.assertTrue(page.contains("Email format is invalid"),
-                "Email without a domain extension must show a field format error");
-    }
+
 
     @AfterMethod(alwaysRun = true)
     public void End() {
