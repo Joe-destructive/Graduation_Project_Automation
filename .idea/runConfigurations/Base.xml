@@ -1,6 +1,5 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Base" type="TestNG">
-    <module name="Graduation_Project_Automation" />
     <shortenClasspath name="NONE" />
     <useClassPathOnly />
     <option name="SUITE_NAME" value="" />
