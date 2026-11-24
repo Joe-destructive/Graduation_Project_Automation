@@ -10,17 +10,16 @@ public class CustomerAreaTests {
 
     WebDriver d;
 
-    // ===== BEFORE =====
     @BeforeMethod
     public void Preconditions() throws InterruptedException {
         d = new ChromeDriver();
         d.manage().window().maximize();
 
         d.navigate().to("https://practicesoftwaretesting.com/auth/login");
-        Thread.sleep(3000);          // wait for the login page to load
+        Thread.sleep(3000);
 
-        d.findElement(By.id("email")).sendKeys("customer4@practicesoftwaretesting.com");
-        d.findElement(By.id("password")).sendKeys("AbCdFgHi01@$");
+        d.findElement(By.id("email")).sendKeys("customer2@practicesoftwaretesting.com");
+        d.findElement(By.id("password")).sendKeys("welcome01");
         d.findElement(By.cssSelector("[data-test='login-submit']")).click();
         Thread.sleep(3000);
 
@@ -28,9 +27,6 @@ public class CustomerAreaTests {
                 "Login failed. Actual URL: " + d.getCurrentUrl());
     }
 
-    // ===== TESTS =====
-
-    // TC29: add a product to favorites
     @Test(priority = 1)
     public void AddToFavorites() throws InterruptedException {
 
@@ -46,7 +42,6 @@ public class CustomerAreaTests {
         Assert.assertEquals(name, "Pliers", "Product was not added to favorites");
     }
 
-    // The favorite card shows the product description
     @Test(priority = 2)
     public void FavoriteCardShowsDescription() throws InterruptedException {
 
@@ -62,7 +57,6 @@ public class CustomerAreaTests {
         Assert.assertFalse(description.isEmpty(), "Product description is empty in favorites");
     }
 
-    // The favorite is still there after refreshing the page
     @Test(priority = 3)
     public void FavoriteStaysAfterRefresh() throws InterruptedException {
 
@@ -81,7 +75,6 @@ public class CustomerAreaTests {
         Assert.assertEquals(name, "Pliers", "Favorite disappeared after refresh");
     }
 
-    // TC32: delete a product from favorites, then the empty message appears
     @Test(priority = 4)
     public void DeleteFromFavorites() throws InterruptedException {
 
@@ -101,7 +94,6 @@ public class CustomerAreaTests {
                 "Empty favorites message was not displayed");
     }
 
-    // The invoices page shows the table headers
     @Test(priority = 5)
     public void InvoicesPageHeaders() throws InterruptedException {
 
@@ -115,7 +107,6 @@ public class CustomerAreaTests {
         Assert.assertTrue(page.contains("Total"), "Total header is missing");
     }
 
-    // TC46: invalid invoice number shows a not found message
     @Test(priority = 6)
     public void InvalidInvoiceNumber() throws InterruptedException {
 
@@ -127,15 +118,11 @@ public class CustomerAreaTests {
                 "No 'not found' message. Actual URL: " + d.getCurrentUrl());
     }
 
-    // ===== AFTER =====
     @AfterMethod
     public void End() {
         d.quit();
     }
 
-    // ===== HELPERS =====
-
-    // Open the "Pliers" product page from the home page
     public void OpenPliersProduct() throws InterruptedException {
         d.navigate().to("https://practicesoftwaretesting.com/");
         Thread.sleep(3000);
