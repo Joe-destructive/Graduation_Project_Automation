@@ -19,7 +19,7 @@ public class LoginTests {
     }
 
     // Login_TCs.xlsx / Email row 3
-    @Test(priority = 1)
+    @Test
     public void EmailRequired() throws InterruptedException {
         d.findElement(By.cssSelector("[data-test='login-submit']")).click();
         Thread.sleep(1000);
@@ -28,7 +28,7 @@ public class LoginTests {
     }
 
     // Login_TCs.xlsx / Password row 2
-    @Test(priority = 2)
+    @Test
     public void PasswordRequired() throws InterruptedException {
         d.findElement(By.cssSelector("[data-test='login-submit']")).click();
         Thread.sleep(1000);
@@ -37,7 +37,7 @@ public class LoginTests {
     }
 
     // Login_TCs.xlsx / Email row 4
-    @Test(priority = 3)
+    @Test
     public void EmailMissingAt() throws InterruptedException {
         d.findElement(By.id("email")).sendKeys("youssef.ramy.example.com");
         d.findElement(By.cssSelector("[data-test='login-submit']")).click();
@@ -47,7 +47,7 @@ public class LoginTests {
     }
 
     // Login_TCs.xlsx / Email row 5
-    @Test(priority = 4)
+    @Test
     public void EmailMissingLocalPart() throws InterruptedException {
         d.findElement(By.id("email")).sendKeys("@example.com");
         d.findElement(By.cssSelector("[data-test='login-submit']")).click();
@@ -57,7 +57,7 @@ public class LoginTests {
     }
 
     // Login_TCs.xlsx / Email row 6
-    @Test(priority = 5)
+    @Test
     public void EmailMissingDomain() throws InterruptedException {
         d.findElement(By.id("email")).sendKeys("youssef@");
         d.findElement(By.cssSelector("[data-test='login-submit']")).click();
@@ -67,7 +67,7 @@ public class LoginTests {
     }
 
     // Login_TCs.xlsx / Email row 7. Known bug #3: missing format validation.
-    @Test(priority = 6)
+    @Test
     public void EmailMissingDomainExtension() throws InterruptedException {
         d.findElement(By.id("email")).sendKeys("youssef@gmail");
         d.findElement(By.cssSelector("[data-test='login-submit']")).click();
