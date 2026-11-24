@@ -18,38 +18,36 @@ public class RegisterIntegrationTests {
         Thread.sleep(7000);
     }
 
-    // Register_TCs.xlsx / Integration testing row 5
-    @Test(priority = 1)
+    @Test
     public void AllMandatoryErrorsTogether() throws InterruptedException {
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='first-name-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("first_name-error")).getText(),
                 "First name is required", "Expected field validation was not displayed");
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='last-name-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("last_name-error")).getText(),
                 "Last name is required", "Expected field validation was not displayed");
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='country-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("country-error")).getText(),
                 "Country is required", "Expected field validation was not displayed");
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='postal_code-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("postal_code-error")).getText(),
                 "Postcode is required", "Expected field validation was not displayed");
         Assert.assertEquals(d.findElement(By.cssSelector("[data-test='house_number-error']")).getText(),
                 "House number is required", "Expected field validation was not displayed");
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='street-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("street-error")).getText(),
                 "Street is required", "Expected field validation was not displayed");
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='city-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("city-error")).getText(),
                 "City is required", "Expected field validation was not displayed");
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='state-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("state-error")).getText(),
                 "State is required", "Expected field validation was not displayed");
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='phone-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("phone-error")).getText(),
                 "Phone is required.", "Expected field validation was not displayed");
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='email-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("email-error")).getText(),
                 "Email is required", "Expected field validation was not displayed");
-        Assert.assertTrue(d.findElement(By.cssSelector("[data-test='dob-error']")).getText().contains("Date of Birth is required"));
-        Assert.assertTrue(d.findElement(By.cssSelector("[data-test='password-error']")).getText().contains("Password is required"));
+        Assert.assertTrue(d.findElement(By.id("dob-error")).getText().contains("Date of Birth is required"));
+        Assert.assertTrue(d.findElement(By.id("password-error")).getText().contains("Password is required"));
         Assert.assertEquals(d.getCurrentUrl(), "https://practicesoftwaretesting.com/auth/register");
     }
 
-    // Register_TCs.xlsx / Integration testing row 7
-    @Test(priority = 2)
+    @Test
     public void InvalidEmailBlocksRegistration() throws InterruptedException {
         d.findElement(By.id("first_name")).sendKeys("Youssef");
         d.findElement(By.id("last_name")).sendKeys("Ramy");
@@ -60,68 +58,62 @@ public class RegisterIntegrationTests {
         Thread.sleep(3000);
         d.findElement(By.id("phone")).sendKeys("01200000000");
         d.findElement(By.id("email")).sendKeys("youssef@@example.com");
-        // Dummy validation input only. No account is created with this password.
         d.findElement(By.id("password")).sendKeys("Youssef-Validation-Only-86!");
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='email-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("email-error")).getText(),
                 "Email format is invalid", "Expected field validation was not displayed");
         Assert.assertEquals(d.getCurrentUrl(), "https://practicesoftwaretesting.com/auth/register");
     }
 
-    // Register_TCs.xlsx / Integration row 6 + Component row 4.
-    // Same spaces defect as the component case, tested during whole-form error correction.
-    @Test(priority = 3)
+    @Test
     public void SpacesMustNotClearRequiredError() throws InterruptedException {
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='first-name-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("first_name-error")).getText(),
                 "First name is required");
 
         d.findElement(By.id("first_name")).sendKeys("        ");
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
         Assert.assertEquals(d.getCurrentUrl(), "https://practicesoftwaretesting.com/auth/register");
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='last-name-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("last_name-error")).getText(),
                 "Last name is required");
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='email-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("email-error")).getText(),
                 "Email is required");
         Assert.assertTrue(d.findElement(By.tagName("body")).getText().contains("First name is required"),
                 "Spaces must not clear the first-name error while the form is still invalid");
     }
 
-    // Register_TCs.xlsx / Integration rows 5-7: email and password required together.
-    @Test(priority = 4)
-    public void MissingEmailAndPasswordTogether() throws InterruptedException {
-        d.findElement(By.id("first_name")).sendKeys("Youssef");
-        d.findElement(By.id("last_name")).sendKeys("Ramy");
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+    @Test
+    public void ValidEmailFormatAccepted() throws InterruptedException {
+        d.findElement(By.id("email")).sendKeys("customer@practicesoftwaretesting.com");
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='email-error']")).getText(),
-                "Email is required");
-        Assert.assertTrue(d.findElement(By.cssSelector("[data-test='password-error']")).getText().contains("Password is required"));
+        Assert.assertEquals(d.findElements(By.id("email-error")).size(), 0,
+                "A valid email address must not show a format error");
+        Assert.assertTrue(d.findElement(By.tagName("body")).getText().contains("First name is required"));
         Assert.assertEquals(d.getCurrentUrl(), "https://practicesoftwaretesting.com/auth/register");
     }
 
-    // Register_TCs.xlsx / Integration testing row 6, validation stage only
-    @Test(priority = 5)
+    @Test
     public void CorrectedFieldsDoNotClearOtherErrors() throws InterruptedException {
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='first-name-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("first_name-error")).getText(),
                 "First name is required", "Expected field validation was not displayed");
         d.findElement(By.id("first_name")).sendKeys("Youssef");
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
         Assert.assertFalse(d.findElement(By.tagName("body")).getText().contains("First name is required"),
                 "First-name error should clear after correction");
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='last-name-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("last_name-error")).getText(),
                 "Last name is required", "Expected field validation was not displayed");
         d.findElement(By.id("last_name")).sendKeys("Ramy");
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
         Assert.assertFalse(d.findElement(By.tagName("body")).getText().contains("Last name is required"));
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='email-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("email-error")).getText(),
                 "Email is required", "Expected field validation was not displayed");
         Assert.assertEquals(d.getCurrentUrl(), "https://practicesoftwaretesting.com/auth/register");
     }
