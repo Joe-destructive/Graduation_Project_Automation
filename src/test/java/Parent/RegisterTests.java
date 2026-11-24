@@ -18,58 +18,53 @@ public class RegisterTests {
         Thread.sleep(7000);
     }
 
-    // Register_TCs.xlsx / Component testing row 3
-    @Test(priority = 1)
+    @Test
     public void FirstNameRequired() throws InterruptedException {
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='first-name-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("first_name-error")).getText(),
                 "First name is required", "Expected field validation was not displayed");
     }
 
-    // Register_TCs.xlsx / Component testing row 4. First name must not be only spaces.
-    @Test(priority = 2)
+    @Test
     public void FirstNameOnlySpacesRejected() throws InterruptedException {
         d.findElement(By.id("first_name")).sendKeys("        ");
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
         Assert.assertTrue(d.findElement(By.tagName("body")).getText().contains("First name is required"),
                 "First name accepts only spaces without a validation error");
     }
 
-    // Register_TCs.xlsx / Component testing row 7
-    @Test(priority = 3)
+    @Test
     public void DateOfBirthRequired() throws InterruptedException {
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
-        String error = d.findElement(By.cssSelector("[data-test='dob-error']")).getText();
+        String error = d.findElement(By.id("dob-error")).getText();
         Assert.assertTrue(error.contains("Date of Birth is required"), "Required field message is missing");
     }
 
-    // Register_TCs.xlsx / Component testing row 24
-    @Test(priority = 4)
-    public void CountryRequired() throws InterruptedException {
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+    @Test
+    public void DateOfBirthAbsurdRejected() throws InterruptedException {
+        d.findElement(By.id("dob")).sendKeys("1800-01-01");
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='country-error']")).getText(),
-                "Country is required", "Expected field validation was not displayed");
+        Assert.assertTrue(d.findElements(By.id("dob-error")).size() > 0,
+                "Date of Birth accepts an absurd year without a validation error");
     }
 
-    // Register_TCs.xlsx / Component testing row 4. First name must not be only spaces.4
-    @Test(priority = 5)
+    @Test
     public void EmailRequired() throws InterruptedException {
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
-        Assert.assertEquals(d.findElement(By.cssSelector("[data-test='email-error']")).getText(),
+        Assert.assertEquals(d.findElement(By.id("email-error")).getText(),
                 "Email is required", "Expected field validation was not displayed");
     }
 
-    // Register_TCs.xlsx / Component testing row 45
-    @Test(priority = 6)
+    @Test
     public void PasswordRequired() throws InterruptedException {
-        d.findElement(By.cssSelector("[data-test='register-submit']")).click();
+        d.findElement(By.className("btnSubmit")).click();
         Thread.sleep(1000);
-        String error = d.findElement(By.cssSelector("[data-test='password-error']")).getText();
+        String error = d.findElement(By.id("password-error")).getText();
         Assert.assertTrue(error.contains("Password is required"), "Required field message is missing");
     }
 
