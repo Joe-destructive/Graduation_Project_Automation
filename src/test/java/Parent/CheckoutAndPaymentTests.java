@@ -24,9 +24,9 @@ public class CheckoutAndPaymentTests {
         d.navigate().to("https://practicesoftwaretesting.com/auth/login");
         Thread.sleep(5000);          // wait for the login page to load
 
-        d.findElement(By.id("email")).sendKeys("customer@practicesoftwaretesting.com");
+        d.findElement(By.id("email")).sendKeys("Y@gmail.com");
         Thread.sleep(1000);
-        d.findElement(By.id("password")).sendKeys("welcome01");
+        d.findElement(By.id("password")).sendKeys("Youssef@123456789123456789");
         Thread.sleep(1000);
         Thread.sleep(1000);
         d.findElement(By.cssSelector("[data-test='login-submit']")).click();

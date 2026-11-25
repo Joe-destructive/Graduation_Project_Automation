@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-11-25T16:15:57 EET" name="Default Suite" finished-at="2026-11-25T16:17:29 EET" duration-ms="92522">
+    <groups>
+    </groups>
+    <test started-at="2026-11-25T16:15:57 EET" name="Graduation_Project_Automation" finished-at="2026-11-25T16:17:29 EET" duration-ms="92522">
+      <class name="Parent.ForgotPassword">
+        <test-method is-config="true" signature="precondition()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:15:57 EET" name="precondition" finished-at="2026-11-25T16:16:02 EET" duration-ms="5007" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- precondition -->
+        <test-method signature="back_to_login_from_forgot_page()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:16:02 EET" name="back_to_login_from_forgot_page" finished-at="2026-11-25T16:16:08 EET" duration-ms="6352" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- back_to_login_from_forgot_page -->
+        <test-method is-config="true" signature="precondition()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:16:08 EET" name="precondition" finished-at="2026-11-25T16:16:11 EET" duration-ms="3152" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- precondition -->
+        <test-method signature="confirmation_message_after_submit()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:16:11 EET" name="confirmation_message_after_submit" finished-at="2026-11-25T16:16:19 EET" duration-ms="7513" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- confirmation_message_after_submit -->
+        <test-method is-config="true" signature="precondition()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:16:19 EET" name="precondition" finished-at="2026-11-25T16:16:22 EET" duration-ms="3099" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- precondition -->
+        <test-method signature="email_field_empty_after_login_page()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:16:22 EET" name="email_field_empty_after_login_page" finished-at="2026-11-25T16:16:26 EET" duration-ms="4253" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- email_field_empty_after_login_page -->
+        <test-method is-config="true" signature="precondition()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:16:26 EET" name="precondition" finished-at="2026-11-25T16:16:29 EET" duration-ms="3115" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- precondition -->
+        <test-method signature="email_with_space()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:16:29 EET" name="email_with_space" finished-at="2026-11-25T16:16:36 EET" duration-ms="6297" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- email_with_space -->
+        <test-method is-config="true" signature="precondition()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:16:36 EET" name="precondition" finished-at="2026-11-25T16:16:39 EET" duration-ms="3112" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- precondition -->
+        <test-method signature="email_without_at()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:16:39 EET" name="email_without_at" finished-at="2026-11-25T16:16:45 EET" duration-ms="6265" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- email_without_at -->
+        <test-method is-config="true" signature="precondition()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:16:45 EET" name="precondition" finished-at="2026-11-25T16:16:48 EET" duration-ms="3103" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- precondition -->
+        <test-method signature="empty_email()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:16:48 EET" name="empty_email" finished-at="2026-11-25T16:16:54 EET" duration-ms="6200" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- empty_email -->
+        <test-method is-config="true" signature="precondition()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:16:54 EET" name="precondition" finished-at="2026-11-25T16:16:57 EET" duration-ms="3098" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- precondition -->
+        <test-method signature="forgot_page_opens_from_login()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:16:57 EET" name="forgot_page_opens_from_login" finished-at="2026-11-25T16:17:02 EET" duration-ms="4133" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- forgot_page_opens_from_login -->
+        <test-method is-config="true" signature="precondition()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:17:02 EET" name="precondition" finished-at="2026-11-25T16:17:05 EET" duration-ms="3104" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- precondition -->
+        <test-method signature="spaces_at_beginning_and_end_of_email()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:17:05 EET" name="spaces_at_beginning_and_end_of_email" finished-at="2026-11-25T16:17:10 EET" duration-ms="5326" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- spaces_at_beginning_and_end_of_email -->
+        <test-method is-config="true" signature="precondition()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:17:10 EET" name="precondition" finished-at="2026-11-25T16:17:13 EET" duration-ms="3108" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- precondition -->
+        <test-method signature="uppercase_email()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:17:13 EET" name="uppercase_email" finished-at="2026-11-25T16:17:19 EET" duration-ms="6268" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- uppercase_email -->
+        <test-method is-config="true" signature="precondition()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:17:19 EET" name="precondition" finished-at="2026-11-25T16:17:22 EET" duration-ms="3110" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- precondition -->
+        <test-method signature="valid_email()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:17:22 EET" name="valid_email" finished-at="2026-11-25T16:17:29 EET" duration-ms="6277" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- valid_email -->
+        <test-method is-config="true" signature="close()[pri:0, instance:Parent.ForgotPassword@26bab2f1]" started-at="2026-11-25T16:17:29 EET" name="close" finished-at="2026-11-25T16:17:29 EET" duration-ms="487" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- Parent.ForgotPassword -->
+    </test> <!-- Graduation_Project_Automation -->
+  </suite> <!-- Default Suite -->
+</testng-results>

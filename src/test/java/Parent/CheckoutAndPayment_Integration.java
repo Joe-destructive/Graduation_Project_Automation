@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 
-public class Checkout_Payment_Integration {
+public class CheckoutAndPayment_Integration {
 
     WebDriver d;
 

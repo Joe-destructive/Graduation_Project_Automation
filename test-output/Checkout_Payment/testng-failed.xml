@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Graduation_Project_Automation(failed)">
+    <classes>
+      <class name="Parent.CheckoutAndPaymentTests">
+        <methods>
+          <include name="SuccessMessageCashOnDelivery"/>
+          <include name="DiscountDisappearsAfterRemovingRental"/>
+          <include name="BankTransferAllFieldsEmpty"/>
+          <include name="ExpiredCardDate"/>
+          <include name="PayWithValidGiftCard"/>
+          <include name="DiscountRegularPlusRental"/>
+          <include name="End"/>
+          <include name="Preconditions"/>
+          <include name="PayWithValidCreditCard"/>
+          <include name="CreditCardNumberEmpty"/>
+        </methods>
+      </class> <!-- Parent.CheckoutAndPaymentTests -->
+    </classes>
+  </test> <!-- Graduation_Project_Automation(failed) -->
+</suite> <!-- Failed suite [Default Suite] -->

@@ -3,8 +3,12 @@ package Parent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CustomerAreaTests {
 
@@ -15,14 +19,18 @@ public class CustomerAreaTests {
 
 
     public void Preconditions() throws InterruptedException {
-        d = new ChromeDriver();
-        d.manage().window().maximize();
-
+        // ----------------To Remove The Unsafe Password Message, ya Dooooooc. --------------------------------
+        ChromeOptions options = new ChromeOptions();
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("profile.password_manager_leak_detection", false);
+        options.setExperimentalOption("prefs", prefs);
+        d = new ChromeDriver(options);
+//----------------------------------------نكمل عادي بس ملقتش حل تاني-------------------------------------------
         d.navigate().to("https://practicesoftwaretesting.com/auth/login");
         Thread.sleep(3000);
 
-        d.findElement(By.id("email")).sendKeys("customer2@practicesoftwaretesting.com");
-        d.findElement(By.id("password")).sendKeys("welcome01");
+        d.findElement(By.id("email")).sendKeys("Y@gmail.com");
+        d.findElement(By.id("password")).sendKeys("Youssef@123456789123456789");
         d.findElement(By.cssSelector("[data-test='login-submit']")).click();
         Thread.sleep(3000);
 

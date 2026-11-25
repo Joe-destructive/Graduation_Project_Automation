@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Graduation_Project_Automation(failed)">
+    <classes>
+      <class name="Parent.CustomerAreaTests">
+        <methods>
+          <include name="Preconditions"/>
+          <include name="InvalidInvoiceNumber"/>
+          <include name="End"/>
+        </methods>
+      </class> <!-- Parent.CustomerAreaTests -->
+    </classes>
+  </test> <!-- Graduation_Project_Automation(failed) -->
+</suite> <!-- Failed suite [Default Suite] -->
